@@ -1,6 +1,8 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <regex>
+
 
 using namespace std;
 
@@ -45,8 +47,17 @@ int main()
 {
     cout << "hellow world  \n";
     tracker::initializeUserErrorMsg();
-//    tracker::printUserErrorMsg();
- //   tracker::printUserErrorMsg();
+
+
+    string teststring("Not able to find ov580 interface with serial number 0072510f14170807050000022c2400010072510f14170807050000031f1e0001s");
+    string result;
+    regex expr ("[0-9a-zA-Z]{20}[0-9a-zA-Z]*");
+    result = regex_replace (teststring,  expr, "");
+
+    cout <<result;
+
+
+
 
     return 0;
 }
