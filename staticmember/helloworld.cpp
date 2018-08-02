@@ -56,12 +56,67 @@ void tracker::nonstaticfunc()
 }
 
 
+class arcException
+{
+public:
+    arcException( string const& msg ) {m_what = msg;};
+
+    virtual ~arcException() noexcept {}
+
+    virtual const char* what() const noexcept {return m_what.c_str();};
+
+private:
+    string m_what;
+};
 
 
+
+
+
+class ArcException
+{
+public:
+    ArcException(std::string const& msg ) {m_what = msg;};
+
+    virtual ~ArcException() noexcept {}
+
+    virtual const char* what() const noexcept {return m_what.c_str();};
+
+private:
+    std::string m_what;
+};
+
+
+#define ARC_ERROR(...)                                              \
+    do                                                              \
+    {                                                               \
+        std::stringstream r;                                        \
+        FormatStream(r, ##__VA_ARGS__);                             \
+        throw std::runtime_error(r.str().c_str());                  \
+    } while(false)
 
 
 
 int main()
+
+{
+
+    try {
+
+            cout << "try really, really hard  \n";
+            arcException e("error message");
+            throw e;
+    
+        } 
+        catch (arcException & e)
+        {
+            cout << "I can catch without a try" << '\n';
+        }
+
+    return 0;
+}
+
+/*
 {
         cout << "before throw\n";
         
@@ -88,8 +143,7 @@ int main()
 
 }
 
-
- /*   
+   
 
  {
     cout << "hellow world  \n";
