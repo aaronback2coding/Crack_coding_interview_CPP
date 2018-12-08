@@ -1,0 +1,2 @@
+ld -r -b binary AV2.json -o AV2.o
+g++ helloworld.o AV2.o 
