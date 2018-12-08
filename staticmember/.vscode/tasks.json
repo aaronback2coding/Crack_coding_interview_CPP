@@ -6,13 +6,12 @@
         {
             "label": "sample_staticmember",
             "type": "shell",
-            "command": "g++ -std=c++11 -g helloworld.cpp -o helloworld",
+            "command": "g++ -std=c++11 -g helloworld.cpp AV1.o -o helloworld",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": "$gcc"
-
         }
     ]
 }

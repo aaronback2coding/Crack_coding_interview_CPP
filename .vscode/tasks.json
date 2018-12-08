@@ -7,13 +7,13 @@
             "label": "helloworld",
             "type": "shell",
             "command": "g++ -std=c++11 -g helloworld.cpp -o helloworld",
-            "cwd": "${workspaceFolder}",
+            //            "command": "pwd",
+            "cwd": "${workspaceFolder}/staticlinkjson/",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "problemMatcher": "$gcc"
-
         }
     ]
 }
